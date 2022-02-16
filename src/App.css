@@ -1,9 +1,9 @@
 .App {
-    text-align: center;
+  text-align: center;
 }
 
 .PhoneInputCountry {
-    display: flex;
+  display: flex;
 }
 
 /* input::-webkit-outer-spin-button,
@@ -20,44 +20,135 @@ input[type='number'] {
 } */
 
 .form-gender {
-    padding: 0;
+  padding: 0;
 }
 
 .loginButton,
 .registerButton {
-    margin: 8px 0 0px;
+  margin: 8px 0 0px;
 }
 
 .form-control span {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.inputForm {
+  display: flex;
+  gap: 20px;
+  padding: 0 !important;
 }
 
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+#inputTitle {
+  width: 100%;
+  outline: none;
+  border: none !important;
 }
 
-.App-link {
-    color: #61dafb;
+.listItem {
+  display: flex;
+  position: relative;
+  gap: 2%;
+  margin-top: 20px;
+  border-radius: 8px;
+  min-height: 160px;
+  border: 1px solid #000;
+  width: 80vw;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.listItem:nth-child(even) {
+  background-color: gray;
+  color: #fff;
+}
+
+.listItemImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  margin-left: 2%;
+}
+
+.listItem img {
+  border-radius: 50%;
+  border: 1px solid #000;
+  width: 100%;
+  max-width: 120px;
+}
+
+.listItemContent {
+  padding: 20px 8px;
+  width: 76%;
+}
+
+.listItemContent,
+.inputItemContent {
+  font-size: 24px;
+}
+
+.inputItemContent {
+  width: 100%;
+  padding: 4px 8px;
+}
+
+.listItemContent h4 {
+  padding: 8px 16px;
+  border: 0.1px solid #ccc;
+  border-radius: 4px;
+  min-height: 50px;
+  word-wrap: break-word;
+  margin-bottom: 40px;
+}
+
+.listItemContent h4:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: text;
+}
+
+.itemDate {
+  position: absolute;
+  bottom: 0;
+  font-size: 16px;
+}
+
+.submitItemBtn {
+  display: flex;
+  justify-content: right;
+  gap: 40px;
+  width: 90%;
+  margin-right: 40px;
+}
+
+.submitItemBtn .btnConfirm:hover {
+  background-color: #24f355;
+  color: #fff;
+}
+
+.submitItemBtn .btnReset:hover {
+  background-color: red;
+  color: #fff;
+}
+
+.submitItemBtn button {
+  border: 1px solid #000;
+  padding: 12px 32px;
+  border-radius: 0;
+}
+
+.backToTop span {
+  position: absolute;
+  right: 0;
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+.backToTop span sgv {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+@media (min-width: 1200px) {
+  .listItem {
+    width: 60vw;
+  }
 }

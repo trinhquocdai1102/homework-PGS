@@ -3,131 +3,126 @@ import { IRegisterParams, IRegisterValidation } from '../../models/auth';
 import { validEmailRegex } from '../../utils';
 
 const validateEmail = (email: string) => {
-    if (!email) {
-        return 'emailRequire';
-    }
+  if (!email) {
+    return 'emailRequire';
+  }
 
-    if (!validEmailRegex.test(email)) {
-        return 'emailInvalid';
-    }
+  if (!validEmailRegex.test(email)) {
+    return 'emailInvalid';
+  }
 
-    return '';
+  return '';
 };
 
 const validateName = (name: string) => {
-    if (!name) {
-        return 'nameRequire';
-    }
+  if (!name) {
+    return 'nameRequire';
+  }
 
-    return '';
+  return '';
 };
 
+// const validateTitle = (title: string) => {
+//   if (!title) {
+//     return 'titleRequire';
+//   }
+
+//   return '';
+// };
+
 const validatePassword = (password: string) => {
-    if (!password) {
-        return 'passwordRequire';
-    }
+  if (!password) {
+    return 'passwordRequire';
+  }
 
-    if (password.length < 4) {
-        return 'minPasswordInvalid';
-    }
+  if (password.length < 4) {
+    return 'minPasswordInvalid';
+  }
 
-    return '';
+  return '';
 };
 
 const validateConfirmPassword = (confirmPassword: string, password: string) => {
-    if (!confirmPassword) {
-        return 'confirmPasswordRequire';
-    }
+  if (!confirmPassword) {
+    return 'confirmPasswordRequire';
+  }
 
-    if (confirmPassword.length < 4) {
-        return 'minPasswordInvalid';
-    }
+  if (confirmPassword.length < 4) {
+    return 'minPasswordInvalid';
+  }
 
-    if (confirmPassword !== password) {
-        return 'confirmPasswordInvalid';
-    }
+  if (confirmPassword !== password) {
+    return 'confirmPasswordInvalid';
+  }
 
-    return '';
+  return '';
 };
 
 const validateGender = (gender: string) => {
-    if (!gender) {
-        return 'genderRequire';
-    }
+  if (!gender) {
+    return 'genderRequire';
+  }
 
-    return '';
+  return '';
 };
 
 const validateRegion = (region: number | string) => {
-    if (!region) {
-        return 'regionRequire';
-    }
+  if (!region) {
+    return 'regionRequire';
+  }
 
-    return '';
+  return '';
 };
 
 const validateState = (state: number | string) => {
-    if (!state) {
-        return 'stateRequire';
-    }
+  if (!state) {
+    return 'stateRequire';
+  }
 
-    return '';
+  return '';
 };
 
-// const validateField = (field: string, value: string) => {
-//     if (value) return '';
-//     let fieldRequire = '';
-//     switch (field) {
-//         case 'name':
-//             fieldRequire = 'nameRequire';
-//             break;
-
-//         case 'gender':
-//             fieldRequire = 'genderRequire';
-//             break;
-
-//         case 'region':
-//             fieldRequire = 'regionRequire';
-//             break;
-
-//         case 'state':
-//             fieldRequire = 'stateRequire';
-//             break;
-//     }
-//     return fieldRequire;
-// };
-
 export const validateLogin = (values: ILoginParams): ILoginValidation => {
-    return {
-        email: validateEmail(values.email),
-        password: validatePassword(values.password),
-    };
+  return {
+    email: validateEmail(values.email),
+    password: validatePassword(values.password),
+  };
 };
 
 export const validLogin = (values: ILoginValidation) => {
-    return !values.email && !values.password;
+  return !values.email && !values.password;
 };
 
 export const validateRegister = (values: IRegisterParams): IRegisterValidation => {
-    return {
-        email: validateEmail(values.email),
-        password: validatePassword(values.password),
-        confirmPassword: validateConfirmPassword(values.password, values.confirmPassword),
-        name: validateName(values.name),
-        gender: validateGender(values.gender),
-        region: validateRegion(values.region),
-        state: validateState(values.state),
-    };
+  return {
+    email: validateEmail(values.email),
+    password: validatePassword(values.password),
+    confirmPassword: validateConfirmPassword(values.password, values.confirmPassword),
+    name: validateName(values.name),
+    gender: validateGender(values.gender),
+    region: validateRegion(values.region),
+    state: validateState(values.state),
+  };
 };
 
 export const validRegister = (values: IRegisterValidation) => {
-    return (
-        !values.email &&
-        !values.password &&
-        !values.confirmPassword &&
-        !values.name &&
-        !values.gender &&
-        !values.region &&
-        !values.state
-    );
+  return (
+    !values.email &&
+    !values.password &&
+    !values.confirmPassword &&
+    !values.name &&
+    !values.gender &&
+    !values.region &&
+    !values.state
+  );
 };
+
+// export const validateListItem = (values: IListItemParams): IListItemValidation => {
+//   return {
+//     title: validateTitle(values.title),
+//   };
+// };
+
+// export const validListItem = (values: IListItemValidation) => {
+//   return !values.title;
+// };
