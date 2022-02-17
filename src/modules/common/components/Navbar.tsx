@@ -45,31 +45,34 @@ const Navbar = () => {
                   <FormattedMessage id="admin" />
                 </Link>
               </li>
-              <li className="nav-item dropdown userIcon">
-                <a
-                  className="nav-link dropdown-toggle active"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <img src={src} />
-                </a>
-                <div className="dropdown-menu userDropdownMenu" aria-labelledby="navbarDropdown">
-                  <a className="dropdown-item" href="/userInfo">
-                    <FormattedMessage id="userInfo" />
+              {name && (
+                <li className="nav-item dropdown userIcon">
+                  <a
+                    className="nav-link dropdown-toggle active"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <img src={src} />
                   </a>
-                  <a className="dropdown-item" href="/contact">
-                    Liên lạc
-                  </a>
-                  <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="#" style={{ padding: '0' }}>
-                    <LogoutForm />
-                  </a>
-                </div>
-              </li>
+                  <div className="dropdown-menu userDropdownMenu" aria-labelledby="navbarDropdown">
+                    <a className="dropdown-item" href="/userInfo">
+                      <FormattedMessage id="userInfo" />
+                    </a>
+                    <a className="dropdown-item" href="/contact">
+                      Liên lạc
+                    </a>
+                    <div className="dropdown-divider"></div>
+
+                    <a className="dropdown-item" href="#" style={{ padding: '0' }}>
+                      <LogoutForm />
+                    </a>
+                  </div>
+                </li>
+              )}
               <li className="nav-item userName">{name}</li>
             </ul>
           </div>
