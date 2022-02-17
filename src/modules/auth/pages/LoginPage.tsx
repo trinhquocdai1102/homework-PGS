@@ -17,49 +17,48 @@ import { replace } from 'connected-react-router';
 import { getErrorMessageResponse } from '../../../utils';
 
 const LoginPage = () => {
-    const dispatch = useDispatch<ThunkDispatch<AppState, null, Action<string>>>();
-    const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
+  const dispatch = useDispatch<ThunkDispatch<AppState, null, Action<string>>>();
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-    const onLogin = React.useCallback(
-        async (values: ILoginParams) => {
-            setErrorMessage('');
-            setLoading(true);
+  const onLogin = React.useCallback(
+    async (values: ILoginParams) => {
+      setErrorMessage('');
+      setLoading(true);
 
-            const json = await dispatch(
-                fetchThunk(API_PATHS.signIn, 'post', { email: values.email, password: values.password }),
-            );
+      const json = await dispatch(
+        fetchThunk(API_PATHS.signIn, 'post', { email: values.email, password: values.password }),
+      );
 
-            setLoading(false);
+      setLoading(false);
 
-            if (json?.code === RESPONSE_STATUS_SUCCESS) {
-                dispatch(setUserInfo(json.data));
-                Cookies.set(ACCESS_TOKEN_KEY, json.data.token, { expires: values.rememberMe ? 7 : undefined });
-                dispatch(replace(ROUTES.home));
-                return;
-            }
+      if (json?.code === RESPONSE_STATUS_SUCCESS) {
+        dispatch(setUserInfo(json.data));
+        Cookies.set(ACCESS_TOKEN_KEY, json.data.token, { expires: values.rememberMe ? 7 : undefined });
+        dispatch(replace(ROUTES.home));
+        return;
+      }
 
-            setErrorMessage(getErrorMessageResponse(json));
-        },
-        [dispatch],
-    );
+      setErrorMessage(getErrorMessageResponse(json));
+    },
+    [dispatch],
+  );
 
-    return (
-        <div
-            className="container"
-            style={{
-                minHeight: '80vh',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'column',
-            }}
-        >
-            <img src={logo} alt="" style={{ maxWidth: '250px', margin: '32px' }} />
+  return (
+    <div
+      className="container"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+      }}
+    >
+      <img src={logo} alt="" style={{ maxWidth: '250px', margin: '32px' }} />
 
-            <LoginForm onLogin={onLogin} loading={loading} errorMessage={errorMessage} />
-        </div>
-    );
+      <LoginForm onLogin={onLogin} loading={loading} errorMessage={errorMessage} />
+    </div>
+  );
 };
 
 export default LoginPage;

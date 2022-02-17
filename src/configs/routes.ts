@@ -4,4 +4,5 @@ export const ROUTES = {
   login: '/login',
   register: '/register',
   listItem: '/listItem',
+  userInfo: '/userInfo',
 };

@@ -28,16 +28,16 @@ export default function reducer(state: ListItemState = {}, action: Action) {
       return { ...state, list: action.data };
     case getType(setPendingList):
       return { ...state, pendingList: action.data };
-    // case getType(setItemValue): {
-    //   const { value, id } = action.data;
-    //   const newPendingList = state.list?.map((item) => {
-    //     if (+item.id === +id) {
-    //       item.title = value;
-    //     }
-    //     return item;
-    //   });
-    //   return { ...state, list: newPendingList };
-    // }
+    case getType(setItemValue): {
+      if (state.list) {
+        const newItems = [...state.list];
+        const { id, value } = action.data;
+        const cloneItem = { ...newItems[+id - 1], title: value };
+        newItems[+id - 1] = cloneItem;
+        return { ...state, list: newItems };
+      }
+      return { ...state };
+    }
     default:
       return state;
   }

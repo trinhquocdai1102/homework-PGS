@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'typesafe-actions';
@@ -8,18 +8,21 @@ import { setItemValue } from '../redux/listReducer';
 
 interface Props {
   item: IListItem;
-  handleChangeTitle(id: number, value: string): void;
+  // changeTitle(id: number, value: string): void;
 }
 
 const Items = (prop: Props) => {
   const dispatch = useDispatch<ThunkDispatch<AppState, null, Action<string>>>();
   const [isTag, setTag] = useState(true);
   const { id, title, thumbnailUrl } = prop.item;
-  const [text, setText] = React.useState(title);
 
+  const [text, setText] = React.useState(title);
   const onBlur = React.useCallback(
     (text: string) => {
-      dispatch(setItemValue({ id: +id, value: text }));
+      if (id && text) {
+        dispatch(setItemValue({ id: +id, value: text }));
+        setTag(true);
+      }
     },
     [dispatch, id],
   );
@@ -39,13 +42,15 @@ const Items = (prop: Props) => {
           <input
             autoFocus
             onBlur={(e) => {
-              setTag(true);
+              setTag(false);
               onBlur(e.target.value);
             }}
             type="text"
             value={text}
             className="form-control inputItemContent"
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
           />
         )}
         <p className="itemDate">{Date.now()}</p>
@@ -54,4 +59,4 @@ const Items = (prop: Props) => {
   );
 };
 
-export default Items;
+export default memo(Items);

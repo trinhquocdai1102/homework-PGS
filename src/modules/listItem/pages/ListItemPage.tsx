@@ -16,8 +16,7 @@ const ListItemPage = () => {
   const listItem = useSelector((state: AppState) => state.list.list);
   const [errorMessage, setErrorMessage] = useState('');
   const [templateListItem, setTemplateListItem] = useState(useSelector((state: AppState) => state.list.list));
-  console.log('template', templateListItem);
-  console.log('store', listItem);
+  console.log(templateListItem);
 
   const fetchListItem = React.useCallback(async () => {
     setErrorMessage('');
@@ -27,31 +26,21 @@ const ListItemPage = () => {
 
     setLoading(false);
     if (json) {
-      //tam thoi cat 3
-      dispatch(setListItemData(json.slice(0, 3)));
+      dispatch(setListItemData(json));
       return;
     }
     setErrorMessage(getErrorMessageResponse(json));
   }, [dispatch]);
 
-  const onConfirm = () => {
-    if (templateListItem) {
-      setTemplateListItem(listItem);
-    }
-    // onConfirm();
-  };
-
-  const onReset = () => {
-    if (templateListItem) {
-      setTemplateListItem(listItem);
-      dispatch(setListItemData(templateListItem));
-    }
-    // onReset();
-  };
-
   React.useEffect(() => {
     fetchListItem();
   }, [fetchListItem]);
+
+  React.useEffect(() => {
+    if (!templateListItem) {
+      setTemplateListItem(listItem);
+    }
+  }, [listItem, templateListItem]);
 
   return (
     <div
@@ -66,14 +55,40 @@ const ListItemPage = () => {
     >
       <img src={logo} alt="" style={{ maxWidth: '250px', margin: '32px' }} />
 
+      {loading && (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status"></div>
+          <span className="sr-only">Loading...</span>
+        </div>
+      )}
       {loading === false && (
-        <ListItemForm
-          itemList={templateListItem}
-          isLoading={loading}
-          errorMessage={errorMessage}
-          onConfirm={onConfirm}
-          onReset={onReset}
-        />
+        <>
+          <div className="submitItemBtn container">
+            <button
+              className="btn btnConfirm"
+              type="submit"
+              onClick={() => {
+                if (templateListItem) {
+                  setTemplateListItem(listItem);
+                }
+              }}
+            >
+              Confirm
+            </button>
+            <button
+              className="btn btnReset"
+              type="submit"
+              onClick={() => {
+                if (templateListItem) {
+                  dispatch(setListItemData([...templateListItem]));
+                }
+              }}
+            >
+              Reset
+            </button>
+          </div>
+          <ListItemForm listItem={listItem} isLoading={loading} errorMessage={errorMessage} />
+        </>
       )}
     </div>
   );

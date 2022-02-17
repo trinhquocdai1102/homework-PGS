@@ -26,5 +26,9 @@
   "stateRequire": "Vui lòng chọn thành phố",
   "title": "Tiêu đề",
   "add": "Thêm",
-  "listItem": "Danh sách"
+  "listItem": "Danh sách",
+  "admin": "Quản lý",
+  "home": "Trang chủ",
+  "logOut": "Đăng xuất",
+  "userInfo": "Thông tin người dùng"
 }
