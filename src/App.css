@@ -1,31 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Date Input CSS */
+input[type='date']::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+/* Status CSS */
+#status option[value] {
+  color: #37b1df;
+  font-size: 16px;
+}
+
+.pagination-list.active {
+  background: #37b1df;
+  color: #fff;
+}
+
 .App {
   text-align: center;
 }
 
+/* Begin: Navbar CSS */
 .navbar {
   border-radius: 0 0 2px 2px !important;
+}
+
+.displayNone {
+  display: none !important;
 }
 
 .dropdown-toggle::after {
   display: none !important;
 }
 
-.userIcon {
+.user-icon {
   margin-left: 8vw;
 }
 
-.userIcon > a {
+.user-icon > a {
   width: 32px;
   padding: 0 !important;
   margin-top: 8px;
 }
 
-.userIcon a img {
+.user-icon a img {
   border-radius: 50%;
   width: 100%;
 }
 
-.userName {
+.user-name {
   color: #fff;
   line-height: 50px;
   font-size: 12px;
@@ -36,17 +73,17 @@
   vertical-align: middle;
 }
 
-.navbarLogo {
+.navbar-logo {
   position: absolute;
   left: 20px;
 }
 
-.navbarMenu {
+.navbar-menu {
   position: absolute;
   right: 120px;
 }
 
-.navbarMenu ul {
+.navbar-menu ul {
   gap: 20px;
 }
 
@@ -54,7 +91,7 @@
   padding: 0 !important;
 }
 
-.logoutButton {
+.logout-button {
   border: none;
   background: unset;
   display: block;
@@ -62,7 +99,7 @@
   padding: 0 !important;
 }
 
-.userDropdownMenu a {
+.user-dropdown-menu a {
   line-height: 40px;
 }
 
@@ -77,24 +114,9 @@
 .sr-only {
   margin-left: 20px;
 }
+/* End: Navbar CSS */
 
-.PhoneInputCountry {
-  display: flex;
-}
-
-/* input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type='number'] {
-    -moz-appearance: textfield;
-} */
-
-/* .form-label {
-    font-weight: bold
-} */
-
+/* Begin: Form CSS */
 .form-gender {
   padding: 0 !important;
 }
@@ -108,8 +130,8 @@ input[type='number'] {
   padding-left: 20px !important;
 }
 
-.loginButton,
-.registerButton {
+.login-button,
+.register-button {
   margin: 8px 0 0px;
 }
 
@@ -127,13 +149,15 @@ input[type='number'] {
   padding: 0 !important;
 }
 
-#inputTitle {
+#input-title {
   width: 100%;
   outline: none;
   border: none !important;
 }
+/* End: Form CSS */
 
-.listItem {
+/* Begin: List CSS */
+.list-item {
   display: flex;
   position: relative;
   gap: 2%;
@@ -144,12 +168,12 @@ input[type='number'] {
   width: 80vw;
 }
 
-.listItem:nth-child(even) {
+.list-item:nth-child(even) {
   background-color: gray;
   color: #fff;
 }
 
-.listItemImage {
+.list-item-image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,30 +181,30 @@ input[type='number'] {
   margin-left: 2%;
 }
 
-.listItem img {
+.list-item img {
   border-radius: 50%;
   border: 1px solid #000;
   width: 100%;
   max-width: 120px;
 }
 
-.listItemContent {
+.list-item-content {
   padding: 20px 8px;
   width: 76%;
 }
 
-.inputItemContent {
+.input-item-content {
   width: 100%;
   padding: 20px !important;
   font-size: 20px !important;
 }
 
-.listItem:nth-child(even) .inputItemContent {
+.list-item:nth-child(even) .input-item-content {
   background-color: gray;
   color: #fff;
 }
 
-.listItemContent h4 {
+.list-item-content h4 {
   padding: 12px 20px;
   border-radius: 4px;
   min-height: 48px;
@@ -190,20 +214,44 @@ input[type='number'] {
   font-size: 22px;
 }
 
-.listItemContent h4:hover {
+.list-item-content h4:hover {
   background-color: #000;
   color: #fff;
   cursor: text;
 }
 
-.itemDate {
+.item-date {
   position: absolute;
   bottom: 0;
   font-size: 14px;
   margin-left: 40px;
 }
+/* End: List CSS */
 
-.submitItemBtn {
+/* Begin: User Information CSS */
+.user-info-page {
+  margin-top: 4vw;
+}
+
+.user-avatar {
+  width: 200px;
+  border-radius: 50% !important;
+  overflow: hidden;
+  margin: 0 auto 60px;
+}
+
+.user-avatar img {
+  width: 100%;
+}
+
+.user-info div {
+  margin: 12px 0;
+}
+
+/* End: User Information CSS */
+
+/* Begin: Submit button CSS */
+.submit-item-btn {
   display: flex;
   justify-content: right;
   gap: 40px;
@@ -211,40 +259,22 @@ input[type='number'] {
   margin-right: 40px;
 }
 
-.userInfoPage {
-  margin-top: 4vw;
-}
-
-.userAvatar {
-  width: 200px;
-  border-radius: 50% !important;
-  overflow: hidden;
-  margin: 0 auto 60px;
-}
-
-.userAvatar img {
-  width: 100%;
-}
-
-.userInfo div {
-  margin: 12px 0;
-}
-
-.submitItemBtn .btnConfirm:hover {
+.submit-item-btn .btn-confirm:hover {
   background-color: #24f355;
   color: #fff;
 }
 
-.submitItemBtn .btnReset:hover {
+.submit-item-btn .btn-reset:hover {
   background-color: red;
   color: #fff;
 }
 
-.submitItemBtn button {
+.submit-item-btn button {
   border: 1px solid #000;
   padding: 12px 32px;
   border-radius: 0;
 }
+/* End: Button CSS*/
 
 /* .backToTop span {
   position: absolute;
@@ -258,6 +288,343 @@ input[type='number'] {
   height: 40px !important;
 } */
 
+/* Begin: Transaction CSS */
+.trans-list-page {
+  background-color: #f5efef;
+  padding: 4px 20px;
+  max-width: 1500px;
+  font-family: 'Poppins', sans-serif;
+  margin: 0 auto;
+}
+
+.trans-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.trans-title h2 {
+  color: #06416e;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.trans-title button {
+  border: none;
+  border-radius: 12px;
+  height: 40px;
+  background: #37b1df;
+}
+
+.date-form {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.trans-header {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.trans-header li,
+.trans-header .date-input {
+  height: 40px;
+  width: 160px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.trans-header select,
+.trans-list-page input {
+  width: 100%;
+  height: 100%;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none !important;
+}
+
+.date-input-icon {
+  position: absolute;
+  font-size: 24px;
+  right: 8px;
+  bottom: 20%;
+}
+
+.date-input-icon:hover {
+  cursor: pointer;
+}
+
+.trans-header-btn {
+  list-style: none;
+  display: flex;
+  gap: 0;
+}
+
+.apply-btn,
+.clear-btn {
+  width: 120px;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  width: 76%;
+  height: 100%;
+}
+
+.apply-btn {
+  border: 2px solid #37b1df !important;
+  color: #37b1df !important;
+  margin-right: -20px;
+}
+
+.apply-btn:hover {
+  background-color: #37b1df !important;
+  color: #fff !important;
+}
+
+.clear-btn {
+  border: 2px solid #f3196f !important;
+  color: #f3196f !important;
+}
+
+.clear-btn:hover {
+  background-color: #f3196f !important;
+  color: #fff !important;
+}
+
+.view-detail {
+  text-decoration: none !important;
+  width: 80%;
+  border: 1px solid #000;
+  border-radius: 20px;
+  line-height: 36px;
+  color: #37b1df;
+  background-color: #fff;
+}
+
+.view-detail:hover {
+  border: none;
+  background-color: #37b1df;
+  color: #fff;
+}
+
+.delete-btn,
+.view-detail,
+.apply-btn,
+.clear-btn {
+  outline: none !important;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.trans-table-content td {
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 4px;
+}
+
+.trans-table-header {
+  font-size: 18px;
+}
+
+.trans-table-content {
+  background-color: #fff;
+  overflow: hidden;
+  height: 60px;
+  margin: 8px 0 20px;
+}
+
+.trans-table-header th:first-child,
+.trans-table-content td:first-child {
+  border-radius: 16px 0 0 16px;
+  padding: 0 0 0 32px !important;
+}
+
+.trans-table-header th:last-child,
+.trans-table-content td:last-child {
+  border-radius: 0 16px 16px 0;
+}
+
+/* End: Transaction CSS */
+
+/* Begin: Modal CSS */
+.confirm-modal,
+.trans-modal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.confirm-modal-content,
+.trans-modal-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.confirm-modal-content {
+  min-height: 260px;
+  align-items: center;
+  width: 100vw;
+  max-width: 1000px;
+  border-radius: 4px;
+}
+
+.confirm-modal-content p {
+  margin-top: -60px;
+  font-size: 28px;
+}
+
+.close-modal-btn {
+  position: absolute;
+  font-size: 28px;
+  right: 8px;
+  top: 8px;
+}
+
+.close-modal-btn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.modal-button {
+  display: flex;
+  gap: 40px;
+  position: absolute;
+  bottom: 60px;
+}
+
+.modal-button button {
+  border: none;
+  width: 88px;
+  height: 44px;
+  border-radius: 4px;
+}
+
+.modal-button_confirm {
+  background-color: red;
+  color: #fff;
+}
+
+.modal-button_cancel {
+  background-color: #ccc;
+}
+
+.modal-button_save {
+  background-color: green;
+  color: #fff;
+}
+
+.modal-button_confirm:hover,
+.modal-button_cancel:hover,
+.modal-button_save {
+  opacity: 0.7;
+}
+
+.modal-delete-btn {
+  font-size: 20px;
+  color: red;
+}
+
+.trans-modal-content {
+  min-height: 60vh;
+  width: 100vw;
+  max-width: 1000px;
+  border-radius: 4px;
+}
+
+.trans-modal-content p {
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+}
+
+.trans-modal-form {
+  max-width: 300px;
+  margin: auto;
+  text-align: left;
+}
+
+.trans-modal-form .form-group:last-child {
+  margin-bottom: 60px !important;
+}
+
+.trans-modal-form label {
+  font-size: 18px;
+}
+/* End: Modal CSS */
+
+/* Begin: Pagination CSS */
+.pagination {
+  display: flex !important;
+  justify-content: space-around;
+}
+
+.pagination-left {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  gap: 20px;
+}
+
+.pagination-left select {
+  position: relative;
+  width: 48px;
+  line-height: 32px;
+  text-align: center;
+  border: none !important;
+  outline: none !important;
+}
+
+.pagination-left h4,
+.pagination-left p {
+  margin: 0 !important;
+}
+
+.pagination-left > p > div svg {
+  position: absolute;
+  right: 0px;
+  top: 22%;
+}
+
+.pagination-right {
+  list-style: none;
+  display: flex;
+}
+
+.pagination-item {
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.pagination-item:hover {
+  cursor: pointer;
+}
+/* End: Pagination CSS */
+
+/* Responsive */
 @media (min-width: 1200px) {
   .listItem {
     width: 60vw;

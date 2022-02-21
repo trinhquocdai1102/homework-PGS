@@ -31,11 +31,11 @@ const Items = (prop: Props) => {
     setText(title);
   }, [title]);
   return (
-    <div className="listItem">
-      <div className="listItemImage">
+    <div className="list-item">
+      <div className="list-item-image">
         <img src={thumbnailUrl} alt="" />
       </div>
-      <div className="listItemContent">
+      <div className="list-item-content">
         {isTag ? (
           <h4 onClick={() => setTag(false)}>{text}</h4>
         ) : (
@@ -47,13 +47,13 @@ const Items = (prop: Props) => {
             }}
             type="text"
             value={text}
-            className="form-control inputItemContent"
+            className="form-control input-item-content"
             onChange={(e) => {
               setText(e.target.value);
             }}
           />
         )}
-        <p className="itemDate">{Date.now()}</p>
+        <p className="item-date">{Date.now()}</p>
       </div>
     </div>
   );

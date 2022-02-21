@@ -16,7 +16,12 @@ export const setUserInfo = createCustomAction('auth/setUserInfo', (data: IUser) 
 
 export const resetData = createCustomAction('auth/resetData', () => ({}));
 
-const actions = { setAuthorization, setUserInfo, resetData };
+export const deleteTransItem = createCustomAction('auth/deleteItem', (data) => ({
+  type: 'DELETE_ITEM',
+  item: data,
+}));
+
+const actions = { setAuthorization, setUserInfo, resetData, deleteTransItem };
 
 type Action = ActionType<typeof actions>;
 
@@ -28,6 +33,8 @@ export default function reducer(state: AuthState = {}, action: Action) {
       return { ...state, user: action.data };
     case getType(resetData):
       return {};
+    case getType(deleteTransItem):
+      return { ...state, item: action.item };
     default:
       return state;
   }

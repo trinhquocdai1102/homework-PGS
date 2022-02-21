@@ -30,5 +30,9 @@
   "admin": "Quản lý",
   "home": "Trang chủ",
   "logOut": "Đăng xuất",
-  "userInfo": "Thông tin người dùng"
+  "userInfo": "Thông tin người dùng",
+  "transaction": "Giao dịch",
+  "male": "Nam",
+  "female": "Nữ",
+  "other": "Khác"
 }

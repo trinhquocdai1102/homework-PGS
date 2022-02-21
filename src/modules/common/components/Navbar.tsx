@@ -19,7 +19,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div className="container">
-          <Link className="navbar-brand navbarLogo" to="/home">
+          <Link className="navbar-brand navbar-logo" to="/home">
             <img src={logo} alt="" style={{ maxWidth: '100px' }} />
           </Link>
           <button
@@ -33,7 +33,7 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse navbarMenu" id="navbarSupportedContent">
+          <div className="collapse navbar-collapse navbar-menu" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/home">
@@ -45,12 +45,17 @@ const Navbar = () => {
                   <FormattedMessage id="admin" />
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to="/transList">
+                  <FormattedMessage id="transaction" />
+                </Link>
+              </li>
               {name && (
-                <li className="nav-item dropdown userIcon">
+                <li className="nav-item dropdown user-icon">
                   <a
                     className="nav-link dropdown-toggle active"
                     href="#"
-                    id="navbarDropdown"
+                    id="navbar-dropdown"
                     role="button"
                     data-toggle="dropdown"
                     aria-haspopup="true"
@@ -58,7 +63,7 @@ const Navbar = () => {
                   >
                     <img src={src} />
                   </a>
-                  <div className="dropdown-menu userDropdownMenu" aria-labelledby="navbarDropdown">
+                  <div className="dropdown-menu user-dropdown-menu" aria-labelledby="navbarDropdown">
                     <a className="dropdown-item" href="/userInfo">
                       <FormattedMessage id="userInfo" />
                     </a>
@@ -73,7 +78,7 @@ const Navbar = () => {
                   </div>
                 </li>
               )}
-              <li className="nav-item userName">{name}</li>
+              <li className="nav-item user-name">{name}</li>
             </ul>
           </div>
         </div>

@@ -49,13 +49,13 @@ const LoginForm = (props: Props) => {
         )}
 
         <div className="col-md-12">
-          <label htmlFor="inputEmail" className="form-label">
+          <label htmlFor="input-email" className="form-label">
             <FormattedMessage id="email" />
           </label>
           <input
             type="text"
             className="form-control"
-            id="inputEmail"
+            id="input-email"
             value={formValues.email}
             onChange={(e) => setFormValues({ ...formValues, email: e.target.value })}
           />
@@ -68,13 +68,13 @@ const LoginForm = (props: Props) => {
         </div>
 
         <div className="col-md-12">
-          <label htmlFor="inputPassword" className="form-label">
+          <label htmlFor="input-password" className="form-label">
             <FormattedMessage id="password" />
           </label>
           <input
             type="password"
             className="form-control"
-            id="inputPassword"
+            id="input-password"
             value={formValues.password}
             onChange={(e) => setFormValues({ ...formValues, password: e.target.value })}
             autoComplete="on"

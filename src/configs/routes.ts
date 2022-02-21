@@ -5,4 +5,5 @@ export const ROUTES = {
   register: '/register',
   listItem: '/listItem',
   userInfo: '/userInfo',
+  transList: '/transList',
 };

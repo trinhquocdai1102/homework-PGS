@@ -5,28 +5,30 @@ import { AppState } from '../../../redux/reducer';
 import { avatarDefault } from '../../../utils/constants';
 
 const UserInfoPage = () => {
-  const { avatar, name, email } = useSelector((state: AppState) => {
+  const { avatar, name, email, gender } = useSelector((state: AppState) => {
     return {
       avatar: state.profile.user?.avatar,
       name: state.profile.user?.name,
       email: state.profile.user?.email,
-      // region: state.profile.user?.region,
+      gender: state.profile.user?.gender,
     };
   });
   const src = avatar ? avatar : avatarDefault;
   return (
     <>
       <title>
-        <FormattedMessage id="userInfo" />
+        <FormattedMessage id="user-info" />
       </title>
-      <div className="userInfoPage">
-        <div className="text-center userAvatar">
+      <div className="user-info-page">
+        <div className="text-center user-avatar">
           <img src={src}></img>
         </div>
-        <div className="text-center userInfo">
+        <div className="text-center user-info">
           <h2 className="font-weight-bold">{name}</h2>
           <h4>{email}</h4>
-          {/* <h5>{region}</h5> */}
+          <h5>
+            Giới tính: <FormattedMessage id={gender} />
+          </h5>
         </div>
       </div>
     </>

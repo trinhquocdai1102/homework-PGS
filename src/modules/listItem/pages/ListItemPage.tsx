@@ -63,9 +63,9 @@ const ListItemPage = () => {
       )}
       {loading === false && (
         <>
-          <div className="submitItemBtn container">
+          <div className="submit-item-btn container">
             <button
-              className="btn btnConfirm"
+              className="btn btn-confirm"
               type="submit"
               onClick={() => {
                 if (templateListItem) {
@@ -76,7 +76,7 @@ const ListItemPage = () => {
               Confirm
             </button>
             <button
-              className="btn btnReset"
+              className="btn btn-reset"
               type="submit"
               onClick={() => {
                 if (templateListItem) {

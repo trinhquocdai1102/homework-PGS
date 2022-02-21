@@ -24,7 +24,7 @@ const LogoutForm = () => {
   };
   return (
     <>
-      <button className="logoutButton" onClick={handleLogout} type="button">
+      <button className="logout-button" onClick={handleLogout} type="button">
         <FormattedMessage id="logOut" />
       </button>
     </>
